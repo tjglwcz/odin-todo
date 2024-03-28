@@ -3,12 +3,49 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap w/ Webpack</title>
+    <title>Odin To-Do</title>
   </head>
   <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Webpack!</h1>
-      <button class="btn btn-primary">Primary button</button>
+    <div class="container-fluid vh-100 d-flex flex-column">
+      <div class="row">
+        <nav class="navbar bg-body-secondary">
+          <div class="container-fluid">
+            <a href="#" class="navbar-brand fs-2">Odin To-Do</a>
+          </div>
+        </nav>
+      </div>
+      <div class="row flex-fill">
+        <div class="col-1 d-flex flex-column bg-body-secondary">
+          <div class="flex-fill">
+            <h3 class="">Projects</h3>
+            <ul class="nav nav-pills nav-fill flex-column">
+              <li class="nav-item">
+                <a href="#" class="nav-link active"> Inbox </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"> Placeholder </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"> Placeholder </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"> Placeholder </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"> Placeholder </a>
+              </li>
+            </ul>
+          </div>
+          <div class="container flex-end mx-auto">
+            <button class="btn btn-outline-primary">New Project</button>
+            <button class="btn btn-primary">Add To-Do</button>
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row navbar bg-body-secondary flex-end text-center">
+        <small>Footer</small>
+      </div>
     </div>
   </body>
 </html>
