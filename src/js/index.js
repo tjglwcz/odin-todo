@@ -2,6 +2,7 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
 const taskContainer = document.querySelector("#taskContainer");
+const addToDoBtn = document.querySelector("#addToDoBtn");
 
 console.log("Hello World");
 
@@ -110,3 +111,12 @@ function addCard(title, description, duedate, project) {
 }
 
 addCard("Card Title", "This is a card description", "2024-04-02", "Project 1");
+
+addToDoBtn.addEventListener("click", () => {
+  addCard(
+    "Card Title",
+    "This is a card description",
+    "2024-04-02",
+    "Project 1"
+  );
+});
