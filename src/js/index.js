@@ -96,7 +96,7 @@ function addCard(title, description, duedate, project) {
   cardTop.appendChild(cardTitle);
   cardTop.appendChild(cardIcon);
 
-  card.appendChild(cardText);
+  cardBody.appendChild(cardText);
   card.appendChild(cardFooter);
   cardFooter.appendChild(cardDueDate);
   cardFooter.appendChild(cardProject);
