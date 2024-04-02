@@ -4,8 +4,6 @@ import * as bootstrap from "bootstrap";
 const taskContainer = document.querySelector("#taskContainer");
 const addToDoBtn = document.querySelector("#addToDoBtn");
 
-console.log("Hello World");
-
 const projects = [];
 
 function projectHandler() {
@@ -24,11 +22,6 @@ function projectHandler() {
 const projHandler = projectHandler();
 
 let project1 = projHandler.createProject("Project 1");
-
-project1.projectTasks.push("siema");
-
-console.log(project1.projectTasks);
-console.log(projects);
 
 function taskHandler() {
   function addTask(title, description, dueDate, project, priority) {
@@ -51,14 +44,15 @@ function taskHandler() {
 
 const tasks = taskHandler();
 
-let task1 = tasks.addTask(
-  "Task 1",
-  "This is a description.",
-  "2023-03-30",
-  "Project 1",
-  3
-);
-console.log(projects);
+for (let i = 0; i < 5; i++) {
+  tasks.addTask(
+    `Task ${i + 1}`,
+    "This is a description.",
+    "2023-03-30",
+    "Project 1",
+    3
+  );
+}
 
 function addCard(title, description, duedate, project) {
   const card = document.createElement("div");
@@ -110,8 +104,6 @@ function addCard(title, description, duedate, project) {
   taskContainer.appendChild(card);
 }
 
-addCard("Card Title", "This is a card description", "2024-04-02", "Project 1");
-
 addToDoBtn.addEventListener("click", () => {
   addCard(
     "Card Title",
@@ -120,3 +112,18 @@ addToDoBtn.addEventListener("click", () => {
     "Project 1"
   );
 });
+
+function renderAllTasks(projects) {
+  for (let project in projects) {
+    for (let task of projects[project].projectTasks) {
+      addCard(
+        task.taskTitle,
+        task.taskDescription,
+        task.taskDueDate,
+        task.taskProject
+      );
+    }
+  }
+}
+
+renderAllTasks(projects);
