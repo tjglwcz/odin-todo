@@ -1,6 +1,8 @@
 import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
+const taskContainer = document.querySelector("#taskContainer");
+
 console.log("Hello World");
 
 const projects = [];
@@ -56,3 +58,55 @@ let task1 = tasks.addTask(
   3
 );
 console.log(projects);
+
+function addCard(title, description, duedate, project) {
+  const card = document.createElement("div");
+  card.className = "card my-2";
+
+  const cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+
+  const cardTop = document.createElement("div");
+  cardTop.className = "card-top d-flex gap-3";
+
+  const cardCheckbox = document.createElement("input");
+  cardCheckbox.className = "form-check-input";
+  cardCheckbox.setAttribute("type", "checkbox");
+
+  const cardTitle = document.createElement("h5");
+  cardTitle.className = "card-title";
+
+  const cardIcon = document.createElement("i");
+  cardIcon.className = "bi bi-trash ms-auto";
+
+  const cardText = document.createElement("p");
+  cardText.className = "card-text";
+
+  const cardFooter = document.createElement("div");
+  cardFooter.className = "card-footer d-flex justify-content-between";
+
+  const cardDueDate = document.createElement("small");
+  const cardProject = document.createElement("small");
+
+  card.appendChild(cardBody);
+
+  cardBody.appendChild(cardTop);
+
+  cardTop.appendChild(cardCheckbox);
+  cardTop.appendChild(cardTitle);
+  cardTop.appendChild(cardIcon);
+
+  card.appendChild(cardText);
+  card.appendChild(cardFooter);
+  cardFooter.appendChild(cardDueDate);
+  cardFooter.appendChild(cardProject);
+
+  cardTitle.textContent = title;
+  cardText.textContent = description;
+  cardDueDate.textContent = `Due: ${duedate}`;
+  cardProject.textContent = `Project: ${project}`;
+
+  taskContainer.appendChild(card);
+}
+
+addCard("Card Title", "This is a card description", "2024-04-02", "Project 1");
