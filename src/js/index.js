@@ -2,7 +2,7 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
 const taskContainer = document.querySelector("#taskContainer");
-const addToDoBtn = document.querySelector("#addToDoBtn");
+const addToDoBtn = document.querySelector("#saveToDo");
 
 const projects = [];
 
@@ -105,12 +105,15 @@ function addCard(title, description, duedate, project) {
 }
 
 addToDoBtn.addEventListener("click", () => {
-  addCard(
-    "Card Title",
-    "This is a card description",
-    "2024-04-02",
-    "Project 1"
-  );
+  let title = document.getElementById("titleInput");
+  let description = document.getElementById("descriptionInput");
+  let date = document.getElementById("dateInput");
+  let project = document.getElementById("projectInput");
+  addCard(title.value, description.value, date.value, project.value);
+  title.value = "";
+  description.value = "";
+  date.value = "";
+  project.value = "";
 });
 
 function renderAllTasks(projects) {
