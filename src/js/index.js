@@ -71,8 +71,14 @@ function addCard(title, description, duedate, project) {
   const cardTitle = document.createElement("h5");
   cardTitle.className = "card-title";
 
-  const cardIcon = document.createElement("i");
-  cardIcon.className = "bi bi-trash ms-auto";
+  const cardIcons = document.createElement("div");
+  cardIcons.className = "ms-auto d-flex gap-2";
+
+  const cardEditIcon = document.createElement("i");
+  cardEditIcon.className = "bi bi-pencil-square";
+
+  const cardDeleteIcon = document.createElement("i");
+  cardDeleteIcon.className = "bi bi-trash text-danger";
 
   const cardText = document.createElement("p");
   cardText.className = "card-text";
@@ -89,7 +95,10 @@ function addCard(title, description, duedate, project) {
 
   cardTop.appendChild(cardCheckbox);
   cardTop.appendChild(cardTitle);
-  cardTop.appendChild(cardIcon);
+  cardTop.appendChild(cardIcons);
+
+  cardIcons.appendChild(cardEditIcon);
+  cardIcons.appendChild(cardDeleteIcon);
 
   cardBody.appendChild(cardText);
   card.appendChild(cardFooter);
