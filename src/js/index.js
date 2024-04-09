@@ -110,6 +110,21 @@ function addCard(title, description, duedate, project) {
   cardDueDate.textContent = `Due: ${duedate}`;
   cardProject.textContent = `Project: ${project}`;
 
+  cardEditIcon.setAttribute("data-bs-target", "#exampleModalCenter");
+  cardEditIcon.setAttribute("data-bs-toggle", "modal");
+
+  cardEditIcon.addEventListener("click", () => {
+    let titleInput = document.getElementById("titleInput");
+    let descriptionInput = document.getElementById("descriptionInput");
+    let dateInput = document.getElementById("dateInput");
+    let projectInput = document.getElementById("projectInput");
+
+    titleInput.value = title;
+    descriptionInput.value = description;
+    dateInput.value = duedate;
+    projectInput.value = project;
+  });
+
   taskContainer.appendChild(card);
 }
 
