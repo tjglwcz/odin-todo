@@ -10,6 +10,10 @@ const projectList = document.querySelector("#projectList");
 
 const projects = [];
 
+for (let i = 0; i < 5; i++) {
+  new Project(`Project ${i}`).add(projects);
+}
+
 let newProject = new Project("First Project");
 newProject.add(projects);
 
@@ -25,7 +29,8 @@ console.log(projects);
 
 let ui = new Renderer();
 ui.renderTask(newTask, taskContainer);
-ui.renderProject(newProject, projectList);
+
+ui.renderAllProjects(projects);
 
 // function projectHandler() {
 //   function createProject(projectName) {

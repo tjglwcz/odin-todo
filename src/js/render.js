@@ -88,4 +88,9 @@ export class Renderer {
 
     target.appendChild(card);
   }
+  renderAllProjects(projects) {
+    for (const project of projects) {
+      this.renderProject(project, projectList);
+    }
+  }
 }
