@@ -2,6 +2,7 @@ import "../scss/styles.scss";
 import * as bootstrap from "bootstrap";
 import { Project } from "./project";
 import { Task } from "./task";
+import { Renderer } from "./render";
 
 const taskContainer = document.querySelector("#taskContainer");
 const addToDoBtn = document.querySelector("#saveToDo");
@@ -20,6 +21,9 @@ let newTask = new Task(
 newTask.add(projects);
 
 console.log(projects);
+
+let ui = new Renderer();
+ui.renderTask(newTask, taskContainer);
 
 // function projectHandler() {
 //   function createProject(projectName) {
