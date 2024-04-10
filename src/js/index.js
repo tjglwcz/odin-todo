@@ -6,6 +6,7 @@ import { Renderer } from "./render";
 
 const taskContainer = document.querySelector("#taskContainer");
 const addToDoBtn = document.querySelector("#saveToDo");
+const projectList = document.querySelector("#projectList");
 
 const projects = [];
 
@@ -24,6 +25,7 @@ console.log(projects);
 
 let ui = new Renderer();
 ui.renderTask(newTask, taskContainer);
+ui.renderProject(newProject, projectList);
 
 // function projectHandler() {
 //   function createProject(projectName) {

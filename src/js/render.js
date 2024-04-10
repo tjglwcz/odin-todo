@@ -1,4 +1,16 @@
 export class Renderer {
+  renderProject(project, target) {
+    const navItem = document.createElement("li");
+    navItem.className = "nav-item";
+
+    const navLink = document.createElement("a");
+    navLink.className = "nav-link";
+    navLink.href = "#";
+    navLink.textContent = project.projectName;
+
+    navItem.appendChild(navLink);
+    target.appendChild(navItem);
+  }
   renderTask(task, target) {
     const card = document.createElement("div");
     card.className = "card my-2";
