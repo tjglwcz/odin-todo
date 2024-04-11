@@ -11,7 +11,7 @@ export class Renderer {
     navItem.appendChild(navLink);
     target.appendChild(navItem);
   }
-  renderTask(task, target) {
+  renderTask(task, target, projects, currentProject) {
     const card = document.createElement("div");
     card.className = "card my-2";
 
@@ -84,6 +84,9 @@ export class Renderer {
 
     cardDeleteIcon.addEventListener("click", () => {
       task.delete(projects);
+      taskContainer.innerHTML = "";
+      this.renderAllTasks(projects, currentProject);
+      console.log(projects);
     });
 
     target.appendChild(card);
@@ -97,7 +100,7 @@ export class Renderer {
     if (currentProject === "none") {
       for (const project of projects) {
         for (const task of project.projectTasks) {
-          this.renderTask(task, taskContainer);
+          this.renderTask(task, taskContainer, projects, currentProject);
         }
       }
     } else {
