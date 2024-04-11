@@ -75,11 +75,29 @@ export class Renderer {
       let descriptionInput = document.getElementById("descriptionInput");
       let dateInput = document.getElementById("dateInput");
       let projectInput = document.getElementById("projectInput");
+      let saveToDoBtn = document.getElementById("saveToDo");
 
       titleInput.value = task.taskTitle;
       descriptionInput.value = task.taskDescription;
       dateInput.value = task.taskDueDate;
       projectInput.value = task.taskProject;
+
+      saveToDoBtn.addEventListener(
+        "click",
+        () => {
+          cardTitle.textContent = titleInput.value;
+          cardText.textContent = descriptionInput.value;
+          cardDueDate.textContent = `Due: ${dateInput.value}`;
+          cardProject.textContent = `Project: ${projectInput.value}`;
+          task.edit(
+            titleInput.value,
+            descriptionInput.value,
+            dateInput.value,
+            projectInput.value
+          );
+        },
+        { once: true }
+      );
     });
 
     cardDeleteIcon.addEventListener("click", () => {
