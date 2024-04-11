@@ -8,10 +8,20 @@ const taskContainer = document.querySelector("#taskContainer");
 const addToDoBtn = document.querySelector("#saveToDo");
 const projectList = document.querySelector("#projectList");
 
+let currentProject = "none";
 const projects = [];
 
 for (let i = 0; i < 5; i++) {
   new Project(`Project ${i}`).add(projects);
+}
+
+for (let i = 0; i < 5; i++) {
+  new Task(
+    `Task ${i}`,
+    "Random task description",
+    "2024-04-11",
+    "Project 0"
+  ).add(projects);
 }
 
 let newProject = new Project("First Project");
@@ -31,7 +41,7 @@ let ui = new Renderer();
 ui.renderTask(newTask, taskContainer);
 
 ui.renderAllProjects(projects);
-
+ui.renderAllTasks(projects, currentProject);
 // function projectHandler() {
 //   function createProject(projectName) {
 //     const newProject = {

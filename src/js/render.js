@@ -93,4 +93,20 @@ export class Renderer {
       this.renderProject(project, projectList);
     }
   }
+  renderAllTasks(projects, currentProject) {
+    if (currentProject === "none") {
+      for (const project of projects) {
+        for (const task of project.projectTasks) {
+          this.renderTask(task, taskContainer);
+        }
+      }
+    } else {
+      const targetProject = projects.find(
+        (proj) => proj.projectName === currentProject
+      );
+      for (const task of targetProject.projectTasks) {
+        this.renderTask(task, taskContainer);
+      }
+    }
+  }
 }
