@@ -85,14 +85,14 @@ export class Renderer {
       let descriptionInput = document.getElementById("descriptionInput");
       let dateInput = document.getElementById("dateInput");
       let projectInput = document.getElementById("projectInput");
-      let saveToDoBtn = document.getElementById("saveToDo");
+      let saveToDo = document.getElementById("saveToDo");
 
       titleInput.value = task.taskTitle;
       descriptionInput.value = task.taskDescription;
       dateInput.value = task.taskDueDate;
       projectInput.value = task.taskProject;
 
-      saveToDoBtn.addEventListener(
+      saveToDo.addEventListener(
         "click",
         () => {
           cardTitle.textContent = titleInput.value;

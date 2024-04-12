@@ -32,19 +32,22 @@ addToDoBtn.addEventListener("click", () => {
   descriptionInput.value = "";
   dateInput.value = "";
   projectInput.value = "";
-});
-
-saveToDoBtn.addEventListener("click", () => {
-  let newTask = new Task(
-    titleInput.value,
-    descriptionInput.value,
-    dateInput.value,
-    projectInput.value
+  saveToDoBtn.addEventListener(
+    "click",
+    () => {
+      let newTask = new Task(
+        titleInput.value,
+        descriptionInput.value,
+        dateInput.value,
+        projectInput.value
+      );
+      newTask.add(projects);
+      taskContainer.innerHTML = "";
+      ui.renderAllTasks(projects, currentProject);
+      console.log(projects);
+    },
+    { once: true }
   );
-  newTask.add(projects);
-  taskContainer.innerHTML = "";
-  ui.renderAllTasks(projects, currentProject);
-  console.log(projects);
 });
 
 let ui = new Renderer();
