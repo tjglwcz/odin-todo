@@ -107,6 +107,9 @@ export class Renderer {
       console.log(projects);
     });
 
+    cardCheckbox.addEventListener("click", () => {
+      task.taskDone = !task.taskDone;
+    });
     target.appendChild(card);
   }
   renderAllProjects(projects) {
