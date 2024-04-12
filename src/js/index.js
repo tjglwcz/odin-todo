@@ -5,8 +5,14 @@ import { Task } from "./task";
 import { Renderer } from "./render";
 
 const taskContainer = document.querySelector("#taskContainer");
-const addToDoBtn = document.querySelector("#saveToDo");
+const saveToDoBtn = document.querySelector("#saveToDo");
 const projectList = document.querySelector("#projectList");
+const addToDoBtn = document.querySelector("#addToDoBtn");
+
+let titleInput = document.querySelector("#titleInput");
+let descriptionInput = document.querySelector("#descriptionInput");
+let dateInput = document.querySelector("#dateInput");
+let projectInput = document.querySelector("#projectInput");
 
 for (let i = 0; i < 5; i++) {
   new Project(`Project ${i}`).add(projects);
@@ -20,6 +26,26 @@ for (let i = 0; i < 5; i++) {
     "Project 0"
   ).add(projects);
 }
+
+addToDoBtn.addEventListener("click", () => {
+  titleInput.value = "";
+  descriptionInput.value = "";
+  dateInput.value = "";
+  projectInput.value = "";
+});
+
+saveToDoBtn.addEventListener("click", () => {
+  let newTask = new Task(
+    titleInput.value,
+    descriptionInput.value,
+    dateInput.value,
+    projectInput.value
+  );
+  newTask.add(projects);
+  taskContainer.innerHTML = "";
+  ui.renderAllTasks(projects, currentProject);
+  console.log(projects);
+});
 
 let ui = new Renderer();
 
