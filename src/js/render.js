@@ -10,6 +10,11 @@ export class Renderer {
 
     navItem.appendChild(navLink);
     target.appendChild(navItem);
+
+    navLink.addEventListener("click", () => {
+      taskContainer.innerHTML = "";
+      this.renderAllTasks(projects, project.projectName);
+    });
   }
   renderTask(task, target, projects, currentProject) {
     const card = document.createElement("div");

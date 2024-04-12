@@ -8,9 +8,6 @@ const taskContainer = document.querySelector("#taskContainer");
 const addToDoBtn = document.querySelector("#saveToDo");
 const projectList = document.querySelector("#projectList");
 
-let currentProject = "none";
-const projects = [];
-
 for (let i = 0; i < 5; i++) {
   new Project(`Project ${i}`).add(projects);
 }
