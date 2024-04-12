@@ -11,6 +11,11 @@ export class Renderer {
     navItem.appendChild(navLink);
     target.appendChild(navItem);
 
+    const projectInput = document.querySelector("#projectInput");
+    const inputOption = document.createElement("option");
+    inputOption.textContent = project.projectName;
+    projectInput.appendChild(inputOption);
+
     navLink.addEventListener("click", () => {
       taskContainer.innerHTML = "";
       this.renderAllTasks(projects, project.projectName);
