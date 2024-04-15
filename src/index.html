@@ -25,7 +25,10 @@
             </ul>
           </div>
           <div class="container flex-end mx-auto">
-            <button class="btn btn-outline-primary">New Project</button>
+            <button class="btn btn-outline-primary"
+            id="addProjectBtn"
+            data-bs-target="#projectModal"
+            data-bs-toggle="modal">New Project</button>
             <button
               class="btn btn-primary"
               id="addToDoBtn"
@@ -111,6 +114,59 @@
               class="btn btn-primary"
               data-bs-dismiss="modal"
               id="saveToDo"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+<div
+      class="modal fade"
+      id="projectModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="projectModalTitle"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projecTModalTitle">
+              Add Project
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="titleInput">Project Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="projectTitleInput"
+                  placeholder="Enter project name"
+                />
+              </div>
+              
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              id="saveProject"
             >
               Save
             </button>
