@@ -8,7 +8,8 @@ const taskContainer = document.querySelector("#taskContainer");
 const saveToDoBtn = document.querySelector("#saveToDo");
 const projectList = document.querySelector("#projectList");
 const addToDoBtn = document.querySelector("#addToDoBtn");
-
+const addProjectBtn = document.querySelector("#addProjectBtn");
+const saveProjectBtn = document.querySelector("#saveProject");
 let titleInput = document.querySelector("#titleInput");
 let descriptionInput = document.querySelector("#descriptionInput");
 let dateInput = document.querySelector("#dateInput");
@@ -48,6 +49,16 @@ addToDoBtn.addEventListener("click", () => {
     },
     { once: true }
   );
+});
+
+addProjectBtn.addEventListener("click", () => {
+  projectTitleInput.value = "";
+
+  saveProjectBtn.addEventListener("click", () => {
+    let newProject = new Project(projectTitleInput.value);
+    newProject.add(projects);
+    ui.renderProject(newProject, projectList);
+  });
 });
 
 let ui = new Renderer();
