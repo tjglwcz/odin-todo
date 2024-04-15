@@ -10,6 +10,7 @@ const projectList = document.querySelector("#projectList");
 const addToDoBtn = document.querySelector("#addToDoBtn");
 const addProjectBtn = document.querySelector("#addProjectBtn");
 const saveProjectBtn = document.querySelector("#saveProject");
+const allTasks = document.querySelector("#allTasks");
 let titleInput = document.querySelector("#titleInput");
 let descriptionInput = document.querySelector("#descriptionInput");
 let dateInput = document.querySelector("#dateInput");
@@ -59,6 +60,11 @@ addProjectBtn.addEventListener("click", () => {
     newProject.add(projects);
     ui.renderProject(newProject, projectList);
   });
+});
+
+allTasks.addEventListener("click", () => {
+  taskContainer.innerHTML = "";
+  ui.renderAllTasks(projects, currentProject);
 });
 
 let ui = new Renderer();
